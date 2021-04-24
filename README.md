@@ -32,3 +32,9 @@ Starts the app in development mode in the browser: [http://localhost:5000]
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.\
 The build is minified and the filenames include the hashes.
+
+## Deployment
+
+Once you push your changes to main or develop branches, prod and pre-prod are builded automatically
+Production mode is available at https://gestion-stock.netlify.app it's deployed from "main" branch
+Pre-prod mode is available at https://preprod-gestion-stock.netlify.app it's deployed from "develop" branch
