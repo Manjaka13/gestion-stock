@@ -14,7 +14,8 @@ Install all dependencies
 
 ### Install prettier and eslint extensions for VSCode
 
-Prettier is for formatting code, eslint for checking for errors and enforce code style. Reload VSCode once it's done.
+Prettier is for formatting code, eslint for checking for errors and enforce code style. Reload VSCode once it's done.\
+Now, each time you save a file, prettier is ran to format your code and eslint is ran to check for potential errors
 
 **Note: Do not use npm, use yarn instead**
 
