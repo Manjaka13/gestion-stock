@@ -12,10 +12,8 @@
 		"web-vitals": "^1.0.1"
 	},
 	"scripts": {
-		"start": "react-scripts start",
+		"start": "react-scripts start -p 5000",
 		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject",
 		"lint": "eslint .",
 		"format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|scss|md)\""
 	},
