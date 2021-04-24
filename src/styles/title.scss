@@ -1,0 +1,47 @@
+/* Titles */
+
+.title-xlg {
+	font-size: 50pt;
+	@include screen-md {
+		font-size: 40pt;
+	}
+	@include screen-xsm {
+		font-size: 30pt;
+	}
+}
+.title-lg {
+	font-size: 40pt;
+	@include screen-md {
+		font-size: 30pt;
+	}
+	@include screen-xsm {
+		font-size: 22pt;
+	}
+}
+.title-md {
+	font-size: 30pt;
+	@include screen-md {
+		font-size: 22pt;
+	}
+	@include screen-xsm {
+		font-size: 18pt;
+	}
+}
+.title-sm {
+	font-size: 22pt;
+	@include screen-md {
+		font-size: 18pt;
+	}
+	@include screen-xsm {
+		font-size: 16pt;
+	}
+}
+.title-xsm {
+	font-size: 18pt;
+	@include screen-md {
+		font-size: 16pt;
+	}
+	@include screen-xsm {
+		font-size: 15pt;
+	}
+}

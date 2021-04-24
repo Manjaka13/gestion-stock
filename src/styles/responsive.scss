@@ -1,0 +1,26 @@
+/* Responsiveness */
+@mixin screen-xlg {
+	@media (min-width: calc($lg + 1)) {
+		@content;
+	}
+}
+@mixin screen-lg {
+	@media (max-width: $lg) {
+		@content;
+	}
+}
+@mixin screen-md {
+	@media (max-width: $md) {
+		@content;
+	}
+}
+@mixin screen-sm {
+	@media (max-width: $sm) {
+		@content;
+	}
+}
+@mixin screen-xsm {
+	@media (max-width: $xsm) {
+		@content;
+	}
+}
