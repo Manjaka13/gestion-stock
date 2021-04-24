@@ -2,6 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 import "./styles/index.scss";
+import PageAPropos from "./components/PageAPropos/PageAPropos";
+import PageBilan from "./components/PageBilan/PageBilan";
+import PageConnexion from "./components/PageConnexion/PageConnexion";
+import PageProduction from "./components/PageProduction/PageProduction";
+import PageReception from "./components/PageReception/PageReception";
+import PageStock from "./components/PageStock/PageStock";
+import PageVente from "./components/PageVente/PageVente";
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -34,25 +41,25 @@ ReactDOM.render(
 				</nav>
 				<Switch>
 					<Route path="/reception">
-						<h1>Reception</h1>
+						<PageReception />
 					</Route>
 					<Route path="/production">
-						<h1>Production</h1>
+						<PageProduction />
 					</Route>
 					<Route path="/stock">
-						<h1>Stock</h1>
+						<PageStock />
 					</Route>
 					<Route path="/vente">
-						<h1>Vente</h1>
+						<PageVente />
 					</Route>
 					<Route path="/bilan">
-						<h1>Bilan</h1>
+						<PageBilan />
 					</Route>
 					<Route path="/a-propos">
-						<h1>A propos</h1>
+						<PageAPropos />
 					</Route>
 					<Route path="/">
-						<h1>Connexion</h1>
+						<PageConnexion />
 					</Route>
 				</Switch>
 			</>
