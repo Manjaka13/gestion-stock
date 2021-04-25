@@ -12,10 +12,13 @@ import axios from "axios";
 import Spinner from "../Spinner/Spinner";
 
 export default function PageConnexion() {
+	const [loading, set_loading] = useState(false);
 	const [id_timeout, set_id_timeout] = useState(null);
 	const ref_error = useRef("");
 	const ref_name = useRef("");
 	const ref_password = useRef("");
+	const cn_submit = loading ? "submit submit--disabled" : "submit";
+	const loading_spinner = loading ? <Spinner className="loading" /> : "";
 
 	const set_error = (error) => {
 		ref_error.current.innerText = error;
@@ -23,32 +26,39 @@ export default function PageConnexion() {
 		set_id_timeout(
 			setTimeout(() => {
 				ref_error.current.innerText = "";
-			}, 4000)
+			}, 3000)
 		);
 	};
 
 	const control_form = (e) => {
 		e.preventDefault();
-		const name = ref_name.current.value;
-		const password = ref_password.current.value;
-		let error = "";
-		if (name.length < 3) error = "Le nom doit faire plus de 2 caractères.";
-		else if (password.length < 3)
-			error = "Le mot de passe doit faire plus de 2 caractères.";
-		if (error) set_error(error);
-		else {
-			axios
-				.post(endpoints.base_url + endpoints.signin, {
-					name: name,
-					password: password,
-				})
-				.then((res) => {
-					const response = res.data;
-					if (response.status === 0) set_error(response.message);
-					else console.log(response.message, response.token);
-				})
-				.catch((e) => set_error(e.message));
-		}
+		if (!loading) {
+			const name = ref_name.current.value;
+			const password = ref_password.current.value;
+			let error = "";
+			if (name.length < 3) error = "Le nom doit faire plus de 2 caractères.";
+			else if (password.length < 3)
+				error = "Le mot de passe doit faire plus de 2 caractères.";
+			if (error) set_error(error);
+			else {
+				set_loading(true);
+				axios
+					.post(endpoints.base_url + endpoints.signin, {
+						name: name,
+						password: password,
+					})
+					.then((res) => {
+						const response = res.data;
+						set_loading(false);
+						if (response.status === 0) set_error(response.message);
+						else console.log(response.message, response.token);
+					})
+					.catch((e) => {
+						set_error(e.message);
+						set_loading(false);
+					});
+			}
+		} else set_error("Veuillez patienter...");
 	};
 
 	return (
@@ -83,11 +93,13 @@ export default function PageConnexion() {
 							placeholder="Votre mot de passe"
 						/>
 					</div>
-					<button className="submit">
-						<Icon icon={faUnlock} /> Se connecter
-					</button>
+					<div className="bot">
+						<button className={cn_submit}>
+							<Icon icon={faUnlock} /> Se connecter
+						</button>
+						{loading_spinner}
+					</div>
 				</form>
-				<Spinner />
 				<p className="error" ref={ref_error}></p>
 			</div>
 		</section>

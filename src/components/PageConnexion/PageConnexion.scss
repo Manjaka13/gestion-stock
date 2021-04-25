@@ -33,6 +33,16 @@
 			.input {
 				width: 400px;
 			}
+			.submit--disabled {
+				pointer-events: none;
+			}
+			.bot {
+				display: flex;
+				align-items: center;
+				.loading {
+					margin-left: 20px;
+				}
+			}
 		}
 		.error {
 			color: red;
