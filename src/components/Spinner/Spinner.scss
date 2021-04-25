@@ -1,0 +1,25 @@
+@import "../../styles/vars.scss";
+
+.spinner {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+}
+.spinner:after {
+	content: " ";
+	display: block;
+	width: 24px;
+	height: 24px;
+	border-radius: 50%;
+	border: 6px solid $color-6;
+	border-color: $color-6 transparent $color-6 transparent;
+	animation: spinner 0.8s linear infinite;
+}
+@keyframes spinner {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

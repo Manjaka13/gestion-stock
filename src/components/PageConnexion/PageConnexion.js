@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import endpoints from "../../request/endpoints";
 import axios from "axios";
+import Spinner from "../Spinner/Spinner";
 
 export default function PageConnexion() {
 	const [id_timeout, set_id_timeout] = useState(null);
@@ -86,6 +87,7 @@ export default function PageConnexion() {
 						<Icon icon={faUnlock} /> Se connecter
 					</button>
 				</form>
+				<Spinner />
 				<p className="error" ref={ref_error}></p>
 			</div>
 		</section>
