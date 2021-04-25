@@ -10,8 +10,11 @@ import {
 import endpoints from "../../request/endpoints";
 import axios from "axios";
 import Spinner from "../Spinner/Spinner";
+import { login } from "../../auth";
+import { useHistory } from "react-router-dom";
 
 export default function PageConnexion() {
+	const history = useHistory();
 	const [loading, set_loading] = useState(false);
 	const [id_timeout, set_id_timeout] = useState(null);
 	const ref_error = useRef("");
@@ -19,7 +22,6 @@ export default function PageConnexion() {
 	const ref_password = useRef("");
 	const cn_submit = loading ? "submit submit--disabled" : "submit";
 	const loading_spinner = loading ? <Spinner className="loading" /> : "";
-
 	const set_error = (error) => {
 		ref_error.current.innerText = error;
 		if (id_timeout) clearTimeout(id_timeout);
@@ -51,7 +53,10 @@ export default function PageConnexion() {
 						const response = res.data;
 						set_loading(false);
 						if (response.status === 0) set_error(response.message);
-						else console.log(response.message, response.token);
+						else {
+							login(response.message);
+							history.push("/reception");
+						}
 					})
 					.catch((e) => {
 						set_error(e.message);

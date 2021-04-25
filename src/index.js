@@ -9,6 +9,9 @@ import PageProduction from "./components/PageProduction/PageProduction";
 import PageReception from "./components/PageReception/PageReception";
 import PageStock from "./components/PageStock/PageStock";
 import PageVente from "./components/PageVente/PageVente";
+//import PrivateRoute from "./routes/PrivateRoute";
+import PublicRoute from "./routes/PublicRoute";
+import PrivateRoute from "./routes/PrivateRoute";
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -40,27 +43,27 @@ ReactDOM.render(
 					</ul>
 				</nav>
 				<Switch>
-					<Route path="/reception">
+					<PrivateRoute path="/reception">
 						<PageReception />
-					</Route>
-					<Route path="/production">
+					</PrivateRoute>
+					<PrivateRoute path="/production">
 						<PageProduction />
-					</Route>
-					<Route path="/stock">
+					</PrivateRoute>
+					<PrivateRoute path="/stock">
 						<PageStock />
-					</Route>
-					<Route path="/vente">
+					</PrivateRoute>
+					<PrivateRoute path="/vente">
 						<PageVente />
-					</Route>
-					<Route path="/bilan">
+					</PrivateRoute>
+					<PrivateRoute path="/bilan">
 						<PageBilan />
-					</Route>
+					</PrivateRoute>
 					<Route path="/a-propos">
 						<PageAPropos />
 					</Route>
-					<Route path="/">
+					<PublicRoute path="/">
 						<PageConnexion />
-					</Route>
+					</PublicRoute>
 				</Switch>
 			</>
 		</BrowserRouter>
